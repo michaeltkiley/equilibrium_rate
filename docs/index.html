@@ -264,10 +264,10 @@
     <p class="eyebrow">U.S. Interest Rates</p>
     <h1>Equilibrium Real Interest Rate</h1>
     <p class="subtitle">The inflation-adjusted interest rate consistent with the economy running at full strength over the long run — often called r*.</p>
-    <p class="citation"><b>UC r*</b> is from a compact Unobserved Components model estimated by economist Michael Kiley — the same model behind the Unobserved Components output gap on the <a href="https://michaeltkiley.github.io/resource_utilization/">Resource Utilization and Risk</a> page. It's shown alongside four independent outside estimates — <b>Laubach&#8209;Williams</b> (the NY Fed's HLW model), an <b>SPF&#8209;implied</b> rate (from the Philadelphia Fed's professional-forecaster survey), an <b>SEP&#8209;implied</b> rate (from the FOMC's own longer&#8209;run projections), and the <b>TIPS 5y5y</b> forward real yield (a market-based estimate) — plus the <b>realized real fed funds rate</b>, which fluctuates around all five as actual policy oscillates above and below r* over the cycle.</p>
+    <p class="citation"><b>UC r*</b> is from a compact Unobserved Components model estimated by economist Michael Kiley — the same model behind the Unobserved Components output gap on the <a href="https://michaeltkiley.github.io/resource_utilization/">Resource Utilization and Risk</a> page. It's shown alongside four independent benchmarks — <b>Holston&#8209;Laubach&#8209;Williams (HLW)</b>, an <b>SPF&#8209;implied</b> rate (from the Philadelphia Fed's professional-forecaster survey), an <b>SEP&#8209;implied</b> rate (from the FOMC's own longer&#8209;run projections), and the <b>TIPS 5y5y</b> forward real yield (a market-based estimate) — plus the <b>ex post real federal funds rate</b>, shown to provide historical context for periods in which policy was relatively restrictive or accommodative.</p>
     <div class="reference-lines">
       <p>UC r* based on M.T. Kiley (2020), &ldquo;What Can the Data Tell Us about the Equilibrium Real Interest Rate?,&rdquo; <i>International Journal of Central Banking</i>, 16(3), 181&ndash;209.</p>
-      <p>Laubach&#8209;Williams from Holston, Laubach &amp; Williams (2017, updated 2023), &ldquo;Measuring the Natural Rate of Interest,&rdquo; Federal Reserve Bank of New York.</p>
+      <p>Holston&#8209;Laubach&#8209;Williams (HLW) from Holston, Laubach &amp; Williams (2017, updated 2023), &ldquo;Measuring the Natural Rate of Interest,&rdquo; Federal Reserve Bank of New York.</p>
     </div>
     <p class="asof" id="asof-line">Data refreshed &mdash;</p>
   </header>
@@ -277,7 +277,7 @@
   <section class="chart-card">
     <div class="chart-head">
       <div>
-        <div class="chart-title">Equilibrium real interest rate: estimates vs. the realized rate, 1954&ndash;present</div>
+        <div class="chart-title">Equilibrium real interest rate: estimates vs. the ex post real rate, 1954&ndash;present</div>
         <div class="chart-caption">Percent, quarterly &mdash; grey bars are NBER recessions</div>
       </div>
       <div class="legend" id="legend-full"></div>
@@ -286,7 +286,7 @@
       <svg class="chart" id="chart-full" viewBox="0 0 960 400" preserveAspectRatio="xMidYMid meet"></svg>
       <div class="tooltip" id="tooltip-full"></div>
     </div>
-    <p class="band-caveat">UC r* and Laubach&#8209;Williams are one-sided (filtered, real-time) estimates, so no uncertainty band is shown — a smoothed/two-sided band isn't a real-time-consistent comparison. SPF-implied is annual (asked once a year); SEP-implied updates four times a year at FOMC meetings; TIPS 5y5y is a daily market series averaged to quarterly. Each line's own gaps reflect its own native frequency, not missing data.</p>
+    <p class="band-caveat">UC r* and HLW are one-sided (filtered, real-time) estimates, so no uncertainty band is shown — a smoothed/two-sided band isn't a real-time-consistent comparison. SPF-implied is annual (asked once a year); SEP-implied updates four times a year at FOMC meetings; TIPS 5y5y is a daily market series averaged to quarterly. Each line's own gaps reflect its own native frequency, not missing data.</p>
   </section>
 
   <section class="chart-card">
@@ -306,16 +306,16 @@
   <footer class="methodology">
     <div class="disclaimer">For informational purposes only. All downloads and calculations are the author&rsquo;s own and may contain errors &mdash; don&rsquo;t rely on this for decisions or conclusions. Verify independently with your own data and calculations before using it for any purpose.</div>
     <div><b>UC r*</b> &mdash; from a small Unobserved Components model of U.S. GDP growth, unemployment, inflation, long&#8209;run inflation expectations, and the fed funds rate, re-estimated (posterior-mode) each update. <b>One-sided (filtered, real-time)</b> estimate shown &mdash; no uncertainty band, since none exists for the one-sided version.</div>
-    <div><b>Laubach&#8209;Williams</b> &mdash; the NY Fed's HLW natural-rate model, a semi-structural Kalman-filter estimate jointly using trend growth and the output gap. One-sided by construction. Pulled from the latest vintage sheet of the NY Fed's own published workbook (updated quarterly); earlier vintage sheets in that same file (real-time snapshots as the estimate looked historically) are not used here.</div>
+    <div><b>Holston&#8209;Laubach&#8209;Williams (HLW)</b> &mdash; the NY Fed's natural-rate model, a semi-structural Kalman-filter estimate jointly using trend growth and the output gap. One-sided by construction. Pulled from the latest vintage sheet of the NY Fed's own published workbook (updated quarterly); earlier vintage sheets in that same file (real-time snapshots as the estimate looked historically) are not used here.</div>
     <div><b>SPF&#8209;implied</b> &mdash; the Philadelphia Fed Survey of Professional Forecasters' median 10&#8209;year&#8209;ahead annualized projection for the 3&#8209;month T&#8209;bill rate (BILL10), less its median 10&#8209;year&#8209;ahead CPI inflation projection (CPI10). <b>Annual, not quarterly</b> &mdash; BILL10 is asked only in the Q1 survey each year, unlike CPI10 (quarterly), so this line has one point per year.</div>
     <div><b>SEP&#8209;implied</b> &mdash; the FOMC's own median &ldquo;longer run&rdquo; federal funds rate projection from the quarterly Summary of Economic Projections, less the median longer&#8209;run PCE inflation projection (both from FRED: <code>FEDTARMDLR</code>, <code>PCECTPIMDLR</code>). Updates at each SEP release (four times a year); PCE longer-run projections are only available on FRED from mid-2015 on, so this line starts later than the others.</div>
     <div><b>TIPS 5y5y</b> &mdash; the 5&#8209;year, 5&#8209;year&#8209;forward real yield implied by 5&#8209;year and 10&#8209;year constant&#8209;maturity TIPS yields (<code>DFII5</code>, <code>DFII10</code>, both from FRED), a market-based expectation of the average real short rate 5 to 10 years out. Unlike the other four lines, this embeds a term premium, not a pure r* expectation &mdash; it has tended to run somewhat above the model- and survey-based estimates for that reason.</div>
-    <div><b>Realized real fed funds rate</b> &mdash; the effective federal funds rate less trailing 4&#8209;quarter core PCE inflation, both from FRED. This is <i>not</i> an r* estimate; it's actual monetary policy, shown to fluctuate around the r* lines as the stance of policy moves above and below its estimated neutral level over the cycle.</div>
+    <div><b>Ex post real federal funds rate</b> &mdash; the effective federal funds rate less trailing 4&#8209;quarter core PCE inflation, both from FRED; an observable proxy for the real policy rate, not an r* estimate (r* is a forward&#8209;looking, ex ante concept). Shown to provide historical context for periods in which policy was relatively restrictive or accommodative.</div>
     <div>See <code>output_gap/equilibrium_rate/README.md</code> for the full data-source list and construction details.</div>
     <div class="references-block">
       <div class="references-label">References</div>
       <div>M.T. Kiley (2020), &ldquo;What Can the Data Tell Us about the Equilibrium Real Interest Rate?,&rdquo; <i>International Journal of Central Banking</i>, 16(3), 181&ndash;209. &mdash; UC r*.</div>
-      <div>K. Holston, T. Laubach &amp; J.C. Williams (2017), &ldquo;Measuring the Natural Rate of Interest: International Trends and Determinants,&rdquo; <i>Journal of International Economics</i>, 108 (Supplement 1), S59&ndash;S75, updated 2023. &mdash; Laubach&#8209;Williams.</div>
+      <div>K. Holston, T. Laubach &amp; J.C. Williams (2017), &ldquo;Measuring the Natural Rate of Interest: International Trends and Determinants,&rdquo; <i>Journal of International Economics</i>, 108 (Supplement 1), S59&ndash;S75, updated 2023. &mdash; Holston&#8209;Laubach&#8209;Williams (HLW).</div>
     </div>
     <div class="sources" id="sources-line"></div>
   </footer>
@@ -326,11 +326,11 @@ const DATA = {"run_date":"20260828","as_of":"2026-04-01","lw_as_of":"2026-04-01"
 
 const SERIES = [
   { key: "domestic", label: "UC r* (one-sided)", color: "var(--series-domestic)", tileLabel: "UC r*" },
-  { key: "lw", label: "Laubach-Williams", color: "var(--series-lw)", tileLabel: "Laubach-Williams" },
+  { key: "lw", label: "Holston-Laubach-Williams (HLW)", color: "var(--series-lw)", tileLabel: "HLW" },
   { key: "spf", label: "SPF-implied", color: "var(--series-spf)", tileLabel: "SPF-implied" },
   { key: "sep", label: "SEP-implied", color: "var(--series-sep)", tileLabel: "SEP-implied" },
   { key: "tips", label: "TIPS 5y5y forward", color: "var(--series-tips)", tileLabel: "TIPS 5y5y" },
-  { key: "realized", label: "Realized real fed funds rate", color: "var(--series-neutral)", tileLabel: "Realized real FFR" },
+  { key: "realized", label: "Ex post real federal funds rate", color: "var(--series-neutral)", tileLabel: "Ex post real FFR" },
 ];
 
 function fmtPct(v) {
@@ -351,7 +351,7 @@ document.getElementById("asof-line").textContent =
   "Data refreshed " + DATA.run_date.slice(0,4) + "-" + DATA.run_date.slice(4,6) + "-" + DATA.run_date.slice(6,8) +
   " · each line's own latest date shown on its tile below";
 document.getElementById("sources-line").textContent =
-  "Sources: FRED (FEDFUNDS, PCEPILFE, DFII5, DFII10, FEDTARMDLR, PCECTPIMDLR) · NY Fed (Laubach-Williams) · Philadelphia Fed SPF · this project's own UC-model estimate. Refreshed run: " + DATA.run_date + ".";
+  "Sources: FRED (FEDFUNDS, PCEPILFE, DFII5, DFII10, FEDTARMDLR, PCECTPIMDLR) · NY Fed (HLW) · Philadelphia Fed SPF · this project's own UC-model estimate. Refreshed run: " + DATA.run_date + ".";
 
 // ---- shared date-comparison helpers ----
 function indexOneYearAgo(dates) {
