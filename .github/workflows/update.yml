@@ -1,0 +1,53 @@
+name: Rebuild equilibrium real rate page
+
+on:
+  repository_dispatch:
+    types: [rstar-updated]
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+
+      # Only used for rstar's output -- everything else this page needs
+      # (FRED, Laubach-Williams, SPF) it ingests directly, on its own.
+      - name: Checkout output_gap (private, read-only)
+        uses: actions/checkout@v4
+        with:
+          repository: michaeltkiley/output_gap
+          token: ${{ secrets.CROSS_REPO_TOKEN }}
+          path: output_gap
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Ingest FRED data
+        run: python3 scripts/00_ingest_fred.py
+
+      - name: Ingest Laubach-Williams
+        run: python3 scripts/00_ingest_lw.py
+
+      - name: Ingest SPF-implied real rate
+        run: python3 scripts/00_ingest_spf.py
+
+      - name: Build outside-benchmark series
+        run: python3 scripts/01_build_benchmarks.py
+
+      - name: Build page
+        run: python3 scripts/02_build_page.py --rstar-file output_gap/rstar/outputs/rstar.csv
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ outputs/ docs/index.html
+          git diff --quiet --cached || git commit -m "Auto-update equilibrium rate page [skip ci]"
+          git push
