@@ -57,7 +57,6 @@
     --ink-muted: #7c8798;
     --accent-text: #74aeef;
     --series-domestic: #3987e5;
-    --series-global: #d95926;
     --series-neutral: #7c8798;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -16px rgba(0, 0, 0, 0.55);
   }
@@ -242,10 +241,6 @@
   .site-nav nav a { font-family: "IBM Plex Sans", sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-secondary); text-decoration: none; }
   .site-nav nav a:hover, .site-nav nav a.active { color: var(--accent-text); }
 
-  .exploratory-note {
-    font-size: 12px; color: var(--ink-muted); background: var(--surface-tile);
-    border: 1px dashed var(--rule); border-radius: 8px; padding: 8px 12px;
-  }
 </style>
 </head>
 <body>
@@ -265,13 +260,11 @@
 </div>
 
 <div class="page">
-  <p class="exploratory-note">Exploratory build, not yet published as its own site — currently developed inside the <code>output_gap</code> project directory.</p>
-
   <header class="masthead">
-    <p class="eyebrow">U.S. and Global Interest Rates</p>
+    <p class="eyebrow">U.S. Interest Rates</p>
     <h1>Equilibrium Real Interest Rate</h1>
     <p class="subtitle">The inflation-adjusted interest rate consistent with the economy running at full strength over the long run — often called r*.</p>
-    <p class="citation"><b>UC r*</b> is from a compact Unobserved Components model estimated by economist Michael Kiley — the same model behind the Unobserved Components output gap on the <a href="../dashboard/docs/index.html">Resource Utilization and Risk</a> page. It's shown alongside four independent outside estimates — <b>Laubach&#8209;Williams</b> (the NY Fed's HLW model), an <b>SPF&#8209;implied</b> rate (from the Philadelphia Fed's professional-forecaster survey), an <b>SEP&#8209;implied</b> rate (from the FOMC's own longer&#8209;run projections), and the <b>TIPS 5y5y</b> forward real yield (a market-based estimate) — plus the <b>realized real fed funds rate</b>, which fluctuates around all five as actual policy oscillates above and below r* over the cycle.</p>
+    <p class="citation"><b>UC r*</b> is from a compact Unobserved Components model estimated by economist Michael Kiley — the same model behind the Unobserved Components output gap on the <a href="https://michaeltkiley.github.io/resource_utilization/">Resource Utilization and Risk</a> page. It's shown alongside four independent outside estimates — <b>Laubach&#8209;Williams</b> (the NY Fed's HLW model), an <b>SPF&#8209;implied</b> rate (from the Philadelphia Fed's professional-forecaster survey), an <b>SEP&#8209;implied</b> rate (from the FOMC's own longer&#8209;run projections), and the <b>TIPS 5y5y</b> forward real yield (a market-based estimate) — plus the <b>realized real fed funds rate</b>, which fluctuates around all five as actual policy oscillates above and below r* over the cycle.</p>
     <div class="reference-lines">
       <p>UC r* based on M.T. Kiley (2020), &ldquo;What Can the Data Tell Us about the Equilibrium Real Interest Rate?,&rdquo; <i>International Journal of Central Banking</i>, 16(3), 181&ndash;209.</p>
       <p>Laubach&#8209;Williams from Holston, Laubach &amp; Williams (2017, updated 2023), &ldquo;Measuring the Natural Rate of Interest,&rdquo; Federal Reserve Bank of New York.</p>
