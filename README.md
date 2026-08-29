@@ -5,14 +5,15 @@ tab on `resource_utilization`), showing this project's own **UC r***
 (Kiley 2020, IJCB, UC model, one-sided/filtered) alongside four
 independent outside r* benchmarks, plus the **realized real fed funds
 rate** that fluctuates around all five. r* itself comes from
-`michaeltkiley/output_gap` (private) rather than being computed here --
+`michaeltkiley/output_gap` rather than being computed here --
 see that repo's `rstar/README.md` and the `CROSS_REPO_TOKEN` deployment
 setup.
 
 - **UC r*** — `output_gap`'s `rstar` Unobserved Components model
   estimate, one-sided (filtered, real-time), read straight from
   `rstar/outputs/rstar.csv` in that repo.
-- **Laubach-Williams** — the NY Fed's HLW natural-rate model.
+- **Laubach-Williams** — the NY Fed's HLW natural-rate model, domestic
+  (US) series only, matching this page's US-focused scope.
 - **SPF-implied** — Philadelphia Fed Survey of Professional Forecasters'
   10-year-ahead T-bill rate less 10-year-ahead CPI inflation.
 - **SEP-implied** — the FOMC's own median longer-run federal funds rate
@@ -22,21 +23,6 @@ setup.
 - **Realized real fed funds rate** — FEDFUNDS less trailing 4-quarter
   core PCE inflation. Not an r* estimate; shown so the reader can see
   actual policy oscillate above and below the r* lines over the cycle.
-
-## History: this page used to build its own "Global Factor"
-
-An earlier version of this page paired UC r* with a custom-built
-"Global Factor" — first a PCA of 11 countries' real rates, then several
-generations of a hand-built state-space model (a common unit-root trend
-plus country-specific AR(2)/AR(1) cyclical processes). After several
-rounds of diagnosis and revision (see git history / prior session notes
-for the full arc — trend levels distorted by a missing intercept,
-parameter instability from unidentified extra factors, etc.), the
-custom model was judged not good enough and **dropped entirely** in
-favor of well-established, independently-published outside r* estimates
-instead. Nothing from that era remains in the pipeline; this rebuild
-replaced `00_ingest_global_rates.py` and `01_build_global_factor.py`
-outright rather than patching them further.
 
 ## Pipeline
 
@@ -123,25 +109,7 @@ neutral" is supposed to look like.
 
 ## UC r*: one-sided, not two-sided
 
-Earlier versions of this page showed UC r*'s two-sided (smoothed)
-estimate with a ±2 std dev uncertainty band. Switched to the **one-sided
-(filtered, real-time)** estimate at the same time this page was rebuilt
-around outside benchmarks, specifically so it's an apples-to-apples
-comparison with Laubach-Williams (one-sided by construction) rather than
-mixing a real-time estimate against a smoothed, backward-looking one.
-No uncertainty band is shown for the one-sided series — none exists (see
-`../rstar/README.md`: the ±2 std dev band was only ever computed for the
-two-sided/smoothed estimate).
-
-## What's not done
-
-- Uncertainty bands on any of the four outside benchmarks (none of the
-  four sources published here come with one in a form this pipeline
-  ingests).
-- Country coverage beyond the US for Laubach-Williams, SPF, and SEP —
-  HLW's workbook does include Canada and euro-area columns; not pulled
-  here since the page's scope is domestic-vs-outside-benchmark, not a
-  multi-country comparison (that was the now-dropped Global Factor's
-  job).
-- A scheduled CI workflow — doesn't exist for this project yet, matching
-  `../rstar` and `../unemployment_risk`'s own "not yet done."
+UC r* is shown one-sided (filtered, real-time), for an apples-to-apples
+comparison with Laubach-Williams, which is one-sided by construction.
+No uncertainty band is shown for this series — see `../rstar/README.md`:
+the ±2 std dev band is only computed for the two-sided/smoothed estimate.
