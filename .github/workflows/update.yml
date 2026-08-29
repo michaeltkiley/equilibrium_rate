@@ -17,11 +17,10 @@ jobs:
 
       # Only used for rstar's output -- everything else this page needs
       # (FRED, Laubach-Williams, SPF) it ingests directly, on its own.
-      - name: Checkout output_gap (private, read-only)
+      - name: Checkout output_gap
         uses: actions/checkout@v4
         with:
           repository: michaeltkiley/output_gap
-          token: ${{ secrets.CROSS_REPO_TOKEN }}
           path: output_gap
 
       - name: Set up Python
