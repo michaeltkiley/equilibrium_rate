@@ -5,6 +5,10 @@ on:
     types: [rstar-updated]
   workflow_dispatch: {}
 
+concurrency:
+  group: update-equilibrium-rate
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
